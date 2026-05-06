@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Painel Logístico</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #14011f, #2d0a4f);
+  color: white;
+}
+
+.container {
+  display: flex;
+}
+
+.menu {
+  width: 250px;
+  background: #1e0033;
+  padding: 20px;
+}
+
+.menu button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: none;
+  background: #6b21a8;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.menu button:hover {
+  background: #9333ea;
+}
+
+.conteudo {
+  flex: 1;
+  padding: 30px;
+}
+
+.card {
+  background: #2d0a4f;
+  padding: 20px;
+  border-radius: 12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="menu">
+    <button onclick="trocar('home')">🏠 Início</button>
+    <button onclick="trocar('saida')">📦 Nova Saída</button>
+    <button onclick="trocar('triagem')">📋 Triagem</button>
+    <button onclick="trocar('inventario')">📊 Inventário</button>
+    <button onclick="trocar('mensagens')">💬 Mensagens</button>
+  </div>
+
+  <div class="conteudo" id="conteudo">
+    <div class="card">
+      <h2>Bem-vindo</h2>
+      <p>Selecione uma opção no menu</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function trocar(secao) {
+  const conteudo = document.getElementById('conteudo');
+
+  if(secao === 'saida'){
+    conteudo.innerHTML = `
+      <div class="card">
+        <h2>Nova Saída</h2>
+        <p>Registro de saída de produtos</p>
+      </div>`;
+  }
+
+  else if(secao === 'triagem'){
+    conteudo.innerHTML = `
+      <div class="card">
+        <h2>Triagem</h2>
+        <p>Conferência de mercadorias</p>
+      </div>`;
+  }
+
+  else if(secao === 'inventario'){
+    conteudo.innerHTML = `
+      <div class="card">
+        <h2>Inventário</h2>
+        <p>Produtos em estoque: 1240</p>
+      </div>`;
+  }
+
+  else if(secao === 'mensagens'){
+    conteudo.innerHTML = `
+      <div class="card">
+        <h2>Mensagens</h2>
+        <p>Sistema de comunicação interna</p>
+      </div>`;
+  }
+
+  else {
+    conteudo.innerHTML = `
+      <div class="card">
+        <h2>Início</h2>
+        <p>Selecione uma opção</p>
+      </div>`;
+  }
+}
+</script>
+
+</body>
+</html>
